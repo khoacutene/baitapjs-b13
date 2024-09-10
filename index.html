@@ -6,31 +6,31 @@
     <title>Bài tập buổi 13</title>
 </head>
 <body>
+    <h3>Tính Tiền Điện</h3>
     <input id="ten" type="text" placeholder="Nhập họ tên">
     <input id="soKW" type="number" placeholder="Nhập số kw">
     <button onclick="calculate()">Tính tiền điện</button>
     <p id="pTien"></p>
-
-    <hr>
-
+    <p id="pInHoTen"></p>
+<hr>
+    <h3>Tính Tiền Cáp</h3>
     <ul>
         <li class="type">
-          <input type="radio" id="nhaDan" value="grabCar" name="selector" />
-          <label for="grabX">Nhà Dân</label>
-
+          <input type="radio" id="grabSUV" value="grabSUV" name="selector" />
+          <label for="nhaDan">Nhà Dân</label>
           <div class="check"></div>
         </li>
 
         <li class="type">
-          <input type="radio" id="doanhNghiep" value="grabSUV" name="selector" />
-          <label for="grabSUV">Doanh Nghiệp</label>
+          <input type="radio" id="grabBlack" value="grabBlack" name="selector" />
+          <label for="doanhNghiep">Doanh Nghiệp</label>
           <div class="check"></div>
         </li>
       </ul>
-      <input id="txtKhachHang" type="text" placeholder="Nhập mã khách hàng">
-      <input id="txtKenh" type="text" placeholder="Số kênh cao cấp">
-      <button onclick="calculate()">Tính tiền cáp</button>
-      <p id="pThongBao"></p>
+    <input type="text" placeholder="Nhập mã khách hàng">
+    <input type="text" placeholder="Số kênh cao cấp">
+    <input type="text" placeholder="Số kết nối">
+
 
 
     <script src="./index.js"></script>
