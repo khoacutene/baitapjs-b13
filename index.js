@@ -72,13 +72,65 @@ const nDKenh = 7.5;
 
 // Doanh nghiệp
 const dNHoaDon = 15;
-const dNKenh = 50;
 const dNDichVu = 75;
+const dNKenh = 50;
 const dNDichVuThem = 5;
 
-const tinhTienCap = () => {
-    let price = 0
-    let price_1 = 0
-    let price_3 = 0
-    let price_4 = 0
+let selected = 'nhaDan'
+
+const chonTinhTien = (element) => {
+
+   if (element.value === "nhaDan") {
+    document.getElementById("txt_soKenh").style.display="block"
+    document.getElementById("txt_soKetNoi").style.display="none"
+   } else if (element.value === "doanhNghiep") {
+    document.getElementById("txt_soKenh").style.display="block"
+    document.getElementById("txt_soKetNoi").style.display="block"
+   }
+
+   selected = element.value
+
+}
+
+const tinhTienCap =() => {
+    let price = 0;
+    let price_1 = 0;
+    let price_2 = 0;
+    let price_3 = 0;
+    let price_4 = 0;
+
+    const tienKenh = document.getElementById("txt_soKenh").value*1;
+    const tienKetNoi = document.getElementById("txt_soKetNoi").value*1;
+
+    const pThongBaoTienCap = document.getElementById("pThongBaoTienCap");
+    const tenKH = document.getElementById("tenKH")
+    const formatter = new   Intl.NumberFormat("vi-VN", {currency: "VND", style: "currency"});
+
+    if (selected == "nhaDan" && tienKenh) {
+        price_1 = nDHoaDon * 1;
+        price_2 = nDDichVu * 1;
+        price_3 = tienKenh * nDKenh;
+        price = price_1 + price_2 + price_3;
+        pThongBaoTienCap.innerHTML = `Họ tên: ` + tenKH.value + `Tiền điện là: ` + formatter.format(price);
+
+    }else if (selected = "doanhNghiep") {
+
+        if (tienKetNoi > 10) {
+            price_1 = dNHoaDon * 1
+            price_2 =  dNDichVu* 1
+            price_3 = dNKenh * tienKetNoi   
+            price_4 = (tienKetNoi - 10) * dNDichVuThem
+            price = price_1 + price_2 + price_3 + price_4;
+        } else {
+            price_1 = dNHoaDon * 1
+            price_2 =  dNDichVu* 1
+            price_3 = dNKenh * tienKetNoi
+            price = price_1 + price_2 + price_3; 
+        }
+     
+        pThongBaoTienCap.innerHTML = `Họ tên: ` + tenKH.value + `Tiền điện là: ` + formatter.format(price);
+
+    } 
+
+
 }

@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bài tập buổi 13</title>
+
+    <style>
+        .display-none{
+            display: none;
+        }
+        .display-block{
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <h3>Tính Tiền Điện</h3>
@@ -14,22 +23,18 @@
     <p id="pInHoTen"></p>
 <hr>
     <h3>Tính Tiền Cáp</h3>
-    <ul>
-        <li class="type">
-          <input type="radio" id="grabSUV" value="grabSUV" name="selector" />
-          <label for="nhaDan">Nhà Dân</label>
-          <div class="check"></div>
-        </li>
+     
+    <select id="mySelect" onchange="chonTinhTien(this)">
+        <option value="nhaDan">Nhà dân</option>
+        <option value="doanhNghiep">Doanh nghiệp</option>
+    </select>
 
-        <li class="type">
-          <input type="radio" id="grabBlack" value="grabBlack" name="selector" />
-          <label for="doanhNghiep">Doanh Nghiệp</label>
-          <div class="check"></div>
-        </li>
-      </ul>
-    <input type="text" placeholder="Nhập mã khách hàng">
-    <input type="text" placeholder="Số kênh cao cấp">
-    <input type="text" placeholder="Số kết nối">
+    <input id="tenKH" type="text" placeholder="Nhập mã khách hàng">
+    <input id="txt_soKenh" type="text" placeholder="Số kênh cao cấp">
+    <input class="display-none" id="txt_soKetNoi" type="text" placeholder="Số kết nối">
+    <button onclick="tinhTienCap()">Tính tiền cáp</button>
+    <p id="pThongBaoTienCap"></p>
+    <p id="pThongBaoTen"></p>
 
 
 
